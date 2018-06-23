@@ -79,7 +79,7 @@ namespace QuickUnityTools.Audio {
                     if (audioSource != null) {
                         GameObject.Destroy(audioSource.gameObject);
                     }
-                }, false, true);
+                }, isLooped: false, useRealTime: true);
             }
             return audioSource;
         }

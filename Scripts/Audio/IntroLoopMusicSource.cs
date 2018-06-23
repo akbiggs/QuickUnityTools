@@ -51,7 +51,7 @@ namespace QuickUnityTools.Audio {
             numberOfLoopsScheduled = 1;
 
             // After the first run of the track finishes, schedule the second loop while the first loop is playing.
-            loopTimer = this.RegisterTimer(music.length, ScheduleNextLoop);
+            loopTimer = this.AttachTimer(music.length, ScheduleNextLoop);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace QuickUnityTools.Audio {
             nextAudioSourceIndex = (nextAudioSourceIndex + 1) % audioSources.Length;
             numberOfLoopsScheduled++;
 
-            loopTimer = this.RegisterTimer(loopTime, ScheduleNextLoop);
+            loopTimer = this.AttachTimer(loopTime, ScheduleNextLoop);
         }
     }
 }

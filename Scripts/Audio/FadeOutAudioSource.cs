@@ -15,7 +15,7 @@ namespace QuickUnityTools.Audio {
         void Start() {
             this.audioSource = this.GetComponent<AudioSource>();
             this.startVolume = this.audioSource.volume;
-            this.fadeOutTimer = this.RegisterTimer(this.fadeOutTime, () => {
+            this.fadeOutTimer = this.AttachTimer(this.fadeOutTime, () => {
                 if (this.destroyGameObjectOnFinish) {
                     GameObject.Destroy(this.gameObject);
                 }
@@ -24,7 +24,7 @@ namespace QuickUnityTools.Audio {
 
         void Update() {
             if (this.fadeOutTimer != null) {
-                this.audioSource.volume = Mathf.Lerp(this.startVolume, 0, this.fadeOutTimer.GetPercentageComplete());
+                this.audioSource.volume = Mathf.Lerp(this.startVolume, 0, this.fadeOutTimer.GetRatioComplete());
             }
         }
     }
